@@ -9,22 +9,19 @@ var pack = d3.pack()
     .size([width, width])
     .padding(1.5);
 
-d3.csv("data/eraFlare.csv", function(d) {
-  d.value = +d.value;
-  if (d.value) return d;
-}, function(error, classes) {
-  if (error) throw error;
 
-  var root = d3.hierarchy({children: classes})
-      .sum(function(d) { return d.value; })
-      .each(function(d) {
-        if (id = d.data.id) {
-          var id, i = id.lastIndexOf(".");
-          d.id = id;
-          d.package = id.slice(0, i);
-          d.class = id.slice(i + 1);
-        }
-      });
+
+var table = d3.csvParse("data/era.csv");
+
+var root = d3.stratify()
+  .id(function(d) { return d.name; })
+  .parentId(function(d) { return d.parent; })
+  (table);
+  d.id = id;
+  d.package = id.slice(0, i);
+  d.class = id.slice(i + 1);
+  
+
 
   var node = svg.selectAll(".node")
     .data(pack(root).leaves())
@@ -53,4 +50,3 @@ d3.csv("data/eraFlare.csv", function(d) {
 
   node.append("title")
       .text(function(d) { return d.id + "\n" + format(d.value); });
-});
