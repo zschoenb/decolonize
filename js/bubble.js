@@ -9,7 +9,7 @@ var pack = d3.pack()
     .size([width, width])
     .padding(1.5);
 
-d3.csv("../data/eraFlare.csv", function(d) {
+d3.csv("../data/eraflare.csv", function(d) {
   d.value = +d.value;
   if (d.value) return d;
 }, function(error, classes) {
