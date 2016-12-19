@@ -75,7 +75,7 @@ treeJSON = d3.json("data/peelsteele.json", function(error, treeData) {
     // Call visit function to establish maxLabelLength
     visit(treeData, function(d) {
         totalNodes++;
-        maxLabelLength = Math.max(d.name.length, maxLabelLength);
+        maxLabelLength = Math.max(d.term.length, maxLabelLength);
 
     }, function(d) {
         return d.children && d.children.length > 0 ? d.children : null;
@@ -86,7 +86,7 @@ treeJSON = d3.json("data/peelsteele.json", function(error, treeData) {
 
     function sortTree() {
         tree.sort(function(a, b) {
-            return b.name.toLowerCase() < a.name.toLowerCase() ? 1 : -1;
+            return b.term.toLowerCase() < a.term.toLowerCase() ? 1 : -1;
         });
     }
     // Sort the tree initially incase the JSON isn't in a sorted order.
@@ -427,7 +427,7 @@ treeJSON = d3.json("data/peelsteele.json", function(error, treeData) {
                 return d.children || d._children ? "end" : "start";
             })
             .text(function(d) {
-                return d.name;
+                return d.term;
             })
             .style("fill-opacity", 0);
 
@@ -454,7 +454,7 @@ treeJSON = d3.json("data/peelsteele.json", function(error, treeData) {
                 return d.children || d._children ? "end" : "start";
             })
             .text(function(d) {
-                return d.name;
+                return d.term;
             });
 
         // Change the circle fill depending on whether it has children and is collapsed
