@@ -48,7 +48,7 @@ treeJSON = d3.json("data/peelsteele.json", function(error, treeData) {
     var viewerHeight = $(document).height();
 
     var tree = d3.layout.tree()
-        .count([viewerHeight, viewerWidth]);
+        .size([viewerHeight, viewerWidth]);
 
     // define a d3 diagonal projection for use by the node paths later on.
     var diagonal = d3.svg.diagonal()
@@ -381,7 +381,7 @@ treeJSON = d3.json("data/peelsteele.json", function(error, treeData) {
         };
         childCount(0, root);
         var newHeight = d3.max(levelWidth) * 25; // 25 pixels per line  
-        tree = tree.count([newHeight, viewerWidth]);
+        tree = tree.size([newHeight, viewerWidth]);
 
         // Compute the new tree layout.
         var nodes = tree.nodes(root).reverse(),
