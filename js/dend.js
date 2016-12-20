@@ -59,7 +59,9 @@ function update(source) {
   };
   childCount(0, root);  
   var newHeight = d3.max(levelWidth) * 40; // 20 pixels per line  
-  tree = tree.size([newHeight, width]);
+  tree = tree.size([newHeight, width]).sort(function(a,b){
+      return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+    });
 
   //end of test
 
