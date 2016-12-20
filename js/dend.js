@@ -37,9 +37,31 @@ d3.json("data/peelsteele.json", function(error, flare) {
   update(root);
 });
 
-d3.select(self.frameElement).style("height", "800px");
+
 
 function update(source) {
+
+  //test
+  var duration = d3.event && d3.event.altKey ? 5000 : 500;
+
+  // compute the new height
+  var levelWidth = [1];
+  var childCount = function(level, n) {
+    
+    if(n.children && n.children.length > 0) {
+      if(levelWidth.length <= level + 1) levelWidth.push(0);
+      
+      levelWidth[level+1] += n.children.length;
+      n.children.forEach(function(d) {
+        childCount(level + 1, d);
+      });
+    }
+  };
+  childCount(0, root);  
+  var newHeight = d3.max(levelWidth) * 80; // 20 pixels per line  
+  tree = tree.size([newHeight, w]);
+
+  //end of test
 
   // Compute the new tree layout.
   var nodes = tree.nodes(root).reverse(),
