@@ -12,7 +12,7 @@ d3.csv("data/era.csv", function(data) {
           // leaf
           if (v.length === 1 && v[0].name.indexOf('/') === -1) {
             // return {'value': parseInt(v[0].sloc)};
-            return {'size': parseInt(v[0].sloc)};
+            return {'size': parseInt(v[0].size)};
           }
           // node
           v.map(function(d) { d.name = d.name.substring(d.name.indexOf('/')+1); return d; });
