@@ -26,7 +26,7 @@ d3.json("data/peelsteele.json", function(error, flare) {
   if (error) throw error;
 
   root = flare;
-  root.x0 = height / 2;
+  root.x0 = 600 / 2;
   root.y0 = 0;
 
   function collapse(d) {
