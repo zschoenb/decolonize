@@ -13,7 +13,7 @@ updateData("data/eraFlare.csv")
 
 function updateData(dataSource) {
 
- d3.csv("data/eraFlare.csv", function(d) {
+d3.csv(dataSource, function(d) {
     d.value = +d.value;
     if (d.value) return d;
   }, function(error, classes) {
