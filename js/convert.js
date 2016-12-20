@@ -26,5 +26,5 @@ d3.csv("data/era.csv", function(data) {
   };
 
   var root = {'name': 'firefox', 'children': level(data)};
-  console.log(data)
-}
+
+});
