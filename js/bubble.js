@@ -11,28 +11,26 @@ function init() {
       .size([width, width])
       .padding(1.5);
 
-
-
   d3.csv("data/eraFlare.csv", function(d) {
     d.value = +d.value;
     if (d.value) return d;
   }, function(error, classes) {
     if (error) throw error;
-    createGraph(d)
   });
+  createGraph(d)
 }
 
 function updateData() {
 
-    // Get the data again
-d3.json("data/peelsteele.json", function(d) {
-  d.value = +d.value;
-  if (d.value) return d;
-}, function(error, classes) {
-  if (error) throw error;
-
-  createGraph(d)
-});
+      // Get the data again
+  d3.json("data/peelsteele.json", function(d) {
+    d.value = +d.value;
+    if (d.value) return d;
+  }, function(error, classes) {
+    if (error) throw error;
+    
+  });
+createGraph(d)
 }
 
 function createGraph(d) {
