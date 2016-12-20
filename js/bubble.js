@@ -38,7 +38,6 @@ function updateEra() {
 function updatePeel() {
 
   d3.json("data/peelsteele.json", function(error, data) {
-    if (error) throw error;
     var root = d3.hierarchy(classes(data))
         .sum(function(d) { return d.value; })
         .sort(function(a, b) { return b.value - a.value; });
