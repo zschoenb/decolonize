@@ -1,4 +1,4 @@
 
-	d3.csv("data/era.csv", function(data) {
+	d3.csvParse("data/era.csv", function(data) {
   		console.log(data)
 	});
