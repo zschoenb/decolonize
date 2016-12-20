@@ -12,13 +12,20 @@ text {
 <title>Bubble Decolonize</title>
 </head>
 <body>
-<svg width="1400" height="1400"></svg>
-<div id="option">
-    <input name="updateButton" 
+<div id="data option">
+    <input name="updatePeel" 
                  type="button" 
-                value="Peel" 
-                onclick="updateData('data/peelsteele.csv')" />
+                value="Peel & Steele" 
+                onclick="updatePeel()" />
+    <input name="updateEra" 
+                 type="button" 
+                value="Era" 
+                onclick="updateEra()" />
 </div>
+<div id="group option">
+<select />
+</div>
+<svg width="1400" height="1400"></svg>
 </body>
 <script src="js/d3/v4/d3.min.js"></script>
 <script src="https://d3js.org/d3-hierarchy.v1.min.js"></script>
