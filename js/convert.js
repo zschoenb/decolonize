@@ -4,18 +4,18 @@ d3.csv("data/era.csv", function(data) {
     return d3.nest()
       .key(function(d) { 
         // console.log('key for: ' + JSON.stringify(d));
-        if (d.type.indexOf('/') === -1) return d.type;
-        else return d.type.substr(0, d.type.indexOf('/')); 
+        if (d.name.indexOf('/') === -1) return d.name;
+        else return d.name.substr(0, d.name.indexOf('/')); 
       })
       .rollup(function(v) {
           // console.log('rollup: ' + JSON.stringify(v));
           // leaf
-          if (v.length === 1 && v[0].type.indexOf('/') === -1) {
+          if (v.length === 1 && v[0].name.indexOf('/') === -1) {
             // return {'value': parseInt(v[0].sloc)};
             return {'size': parseInt(v[0].sloc)};
           }
           // node
-          v.map(function(d) { d.type = d.type.substring(d.type.indexOf('/')+1); return d; });
+          v.map(function(d) { d.name = d.name.substring(d.name.indexOf('/')+1); return d; });
           return {'children': level(v)};
       })
       .entries(nodes)
