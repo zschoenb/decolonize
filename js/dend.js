@@ -59,7 +59,7 @@ function update(source) {
   };
   childCount(0, root);  
   var newHeight = d3.max(levelWidth) * 80; // 20 pixels per line  
-  tree = tree.size([newHeight, w]);
+  tree = tree.size([newHeight, width]);
 
   //end of test
 
