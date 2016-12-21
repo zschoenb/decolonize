@@ -4,13 +4,13 @@ d3.csv("data/era.csv", function(data) {
     return d3.nest()
       .key(function(d) { 
         // console.log('key for: ' + JSON.stringify(d));
-        if (d.name.indexOf('/') === -1) return d.name;
-        else return d.name.substr(0, d.name.indexOf('/')); 
+        return d.name;
+        
       })
       .rollup(function(v) {
           // console.log('rollup: ' + JSON.stringify(v));
           // leaf
-          if (v.length === 1 && v[0].name.indexOf('/') === -1) {
+
             // return {'value': parseInt(v[0].sloc)};
             return {'size': parseInt(v[0].size)};
           }
