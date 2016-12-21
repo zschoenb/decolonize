@@ -15,7 +15,7 @@ d3.csv("data/era.csv", function(data) {
             return {'size': parseInt(v[0].size)};
           }
           // node
-          v.map(function(d) { d.name = d.name.substring(d.name.indexOf('/')+1); return d; });
+          v.map(function(d) { return d; });
           return {'children': level(v)};
       })
       .entries(nodes)
