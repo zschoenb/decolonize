@@ -6,7 +6,7 @@ d3.csv("data/era.csv", function(data) {
         // console.log('key for: ' + JSON.stringify(d));
         return d.name;
         
-      })
+      });
       .rollup(function(v) {
           // console.log('rollup: ' + JSON.stringify(v));
           // leaf
