@@ -18,7 +18,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.json("data/peelsteele.json", function(error, flare) {
+d3.json("data/combined.json", function(error, flare) {
   if (error) throw error;
 
   root = flare;
