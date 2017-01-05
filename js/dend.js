@@ -167,15 +167,19 @@ function click(d) {
 }
 
 function mouseover(d) {
-    d3.select(this).append("text")
+    if (d != undefined) {
+      d3.select(this).append("text")
         .attr("class", "hover")
         .attr('transform', function(d){ 
             return 'translate(5, -10)';
-        })
+         })
         .text(d.size + " in this community");
+    }
 }
 
 // Toggle children on click.
 function mouseout(d) {
+  if (d != undefined) {
     d3.select(this).select("text.hover").remove();
+  }
 }
