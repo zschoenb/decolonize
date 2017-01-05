@@ -167,7 +167,7 @@ function click(d) {
 }
 
 function mouseover(d) {
-    if (d != undefined) {
+    if (d.size != undefined) {
       d3.select(this).append("text")
         .attr("class", "hover")
         .attr('transform', function(d){ 
@@ -179,7 +179,7 @@ function mouseover(d) {
 
 // Toggle children on click.
 function mouseout(d) {
-  if (d != undefined) {
+  if (d.size != undefined) {
     d3.select(this).select("text.hover").remove();
   }
 }
