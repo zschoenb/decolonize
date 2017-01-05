@@ -171,7 +171,7 @@ function mouseover(d) {
       d3.select(this).append("text")
         .attr("class", "hover")
         .attr('transform', function(d){ 
-            return 'translate(10, -15)';
+            return 'translate(10, -12)';
          })
         .text(d.size + " in this community");
     }
