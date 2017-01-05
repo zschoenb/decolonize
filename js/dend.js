@@ -12,24 +12,11 @@ var tree = d3.layout.tree()
 var diagonal = d3.svg.diagonal()
     .projection(function(d) { return [d.y, d.x]; });
 
-
-var tip = d3.tip()
-  .attr('class', 'd3-tip')
-  .offset([-10, 0])
-  .html(function(d) {
-    return "<strong>Count:</strong> <span style='color:Blue'>" + d.size + "</span>";
-  })
-
-
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.right + margin.left)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-
-svg.call(tip);
-
 
 d3.json("data/all-original-combined.json", function(error, flare) {
   if (error) throw error;
@@ -94,6 +81,8 @@ function update(source) {
       .attr("class", "node")
       .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
       .on("click", click);
+      .on("mouseover", mouseover)
+      .on("mouseout", mouseout);
 
   nodeEnter.append("circle")
       .attr("r", 1e-6)
@@ -105,6 +94,8 @@ function update(source) {
       .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
       .text(function(d) { return d.name; })
       .style("fill-opacity", 1e-6);
+
+
 
   // Transition nodes to their new position.
   var nodeUpdate = node.transition()
@@ -173,4 +164,18 @@ function click(d) {
     d._children = null;
   }
   update(d);
+}
+
+function mouseover(d) {
+    d3.select(this).append("text")
+        .attr("class", "hover")
+        .attr('transform', function(d){ 
+            return 'translate(5, -10)';
+        })
+        .text(d.size + " in this community");
+}
+
+// Toggle children on click.
+function mouseout(d) {
+    d3.select(this).select("text.hover").remove();
 }
