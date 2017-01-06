@@ -84,7 +84,7 @@
    var updateWindow = function(data) {
 
     data.forEach(function(currentValue, index) {
-      var text = d3.selectAll("g").append("text")
+      var text = d3.selectAll("g").selectAll("text")
       .data(currentValue, function(d) { return d.name });
     
     text.attr("class", "update");
