@@ -1,8 +1,11 @@
-  $( function() {
+$( document ).ready(function() {
     availableTags = d3.csv("data/all-original.csv", function(error, data) {
       if (error) throw error;
-      $( "#search" ).autocomplete({
+      auto(data);
+    });
+    auto = function(data) {
+      $( ".search" ).autocomplete({
         source: availableTags
       });
-    });
+    }
   });
