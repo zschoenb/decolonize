@@ -5,7 +5,7 @@ $(function() {
 
     });
     var auto = function(availableTags) {
-      console.log(d3.data(function(d) { return d.term}; ))
+      console.log(d3.data(function(d) { return d.term } ); )
       availableTags = ['yes','no'];
       $( "#search" ).autocomplete({
         source: availableTags
