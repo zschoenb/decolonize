@@ -81,7 +81,7 @@
   })
 
 
-  var paths = function(paths) {
+  var updateWindow = function(paths) {
     console.log(paths)
   }
 /**
