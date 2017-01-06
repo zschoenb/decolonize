@@ -4,6 +4,7 @@ $(function() {
       auto(data);
     });
     var auto = function(availableTags) {
+      console.log(availableTags)
       $( "#search" ).autocomplete({
         source: availableTags
       });
