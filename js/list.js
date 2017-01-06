@@ -3,7 +3,7 @@ $(function() {
       if (error) throw error;
       auto(data);
     });
-    var auto = function(data) {
+    var auto = function(availableTags) {
       $( "#search" ).autocomplete({
         source: availableTags
       });
