@@ -14,9 +14,9 @@
         aplha: d.Alpha,
         term: d.Term,
         count: +d.Count
-      });
+      }
       return d.Term
-    }
+    });
 
     $( "#tags" ).autocomplete({
       source: availableTags
