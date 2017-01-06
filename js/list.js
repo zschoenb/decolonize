@@ -34,6 +34,14 @@
           return [index,leaves];
   }
 
+  var div = d3.select("body")
+    .append("div") // declare the tooltip div
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
+  var margin = {top: 20, right: 120, bottom: 20, left: 120},
+    width = 1800 - margin.right - margin.left,
+    height = 25000 - margin.top - margin.bottom;
 
   var i = 0,
     duration = 750,
@@ -41,10 +49,15 @@
     select2_data;
 
 
-  var svg = d3.select("svg"),
-      width = +svg.attr("width"),
-      height = +svg.attr("height"),
-      g = svg.append("g").attr("transform", "translate(32," + (height / 2) + ")");
+  var diagonal = d3.svg.diagonal()
+    .projection(function(d) { return [d.y, d.x]; });
+
+  var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.right + margin.left)
+    .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
 
   d3.json("data/all-original-combined.json", function(error,values){
     root = values;
@@ -58,9 +71,9 @@
   });
   //attach search box listener
   $("#search").on("select2-selecting", function(e) {
-    var data = searchTree(root,e.object.text,[]);
-    if(typeof(data) !== "undefined"){
-      updateWindow(data);
+    var paths = searchTree(root,e.object.text,[]);
+    if(typeof(paths) !== "undefined"){
+      updateWindow(paths);
     }
     else{
       alert(e.object.text+" not found!");
@@ -68,7 +81,7 @@
   })
 
 
-  var updateWindow = function(data) {
+   var updateWindow = function(data) {
     var text = g.selectAll("text")
       .data(data, function(d) { return d.children; });
     
@@ -82,6 +95,5 @@
         .attr("x", function(d, i) { return i * 32; });
 
     text.exit().remove();
-
 
   }
