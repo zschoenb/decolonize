@@ -85,14 +85,14 @@
 
     data.forEach(function(currentValue, index) {
       var text = d3.selectAll("g").selectAll("text")
-      .data(currentValue, function(d) { return d.name });
+      .data(currentValue, function(d) { return d });
     
     text.attr("class", "update");
 
     text.enter().append("text")
         .attr("class", "enter")
         .attr("dy", ".35em")
-        .text(function(d) { return d; })
+        .text(function(d) { return d.name; })
 
     
     text.exit().remove();
