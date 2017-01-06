@@ -172,7 +172,7 @@
  //   .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
 
       nodeEnter.append("text")
-        .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
+        .attr("x", function(d) { return d.children || d._children ? -20 : 10; })
         .attr("dy", ".35em")
         .attr("text-anchor", function(d) { return d.children || d._children ? "start" : "end"; })
         .text(function(d) { return d.name; })
@@ -283,7 +283,7 @@ function mouseout(d) {
           word,
           line = [],
           lineNumber = 0,
-          lineHeight = 1.1, // ems
+          lineHeight = 1.5, // ems
           y = text.attr("y"),
           dy = parseFloat(text.attr("dy")),
           tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
