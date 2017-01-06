@@ -1,8 +1,8 @@
+
+
 root = d3.json("data/all-original-combined.json", function(error, json) {
   if (error) throw error;
-
-  return json;
-  
+  return json;  
 });
 
 var i = 0;
@@ -12,8 +12,8 @@ var transform = d3.zoomIdentity;;
 var nodeSvg, linkSvg, simulation, nodeEnter, linkEnter ;
 
 var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height)
+    .attr("width", "100%")
+    .attr("height", "100%")
     .call(d3.zoom().scaleExtent([1 / 2, 8]).on("zoom", zoomed))
   .append("g")
     .attr("transform", "translate(40,0)");
