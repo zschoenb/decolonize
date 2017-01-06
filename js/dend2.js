@@ -179,7 +179,7 @@
         .style("fill-opacity", 1e-6);      
   
 
-      wrap(d3.selectAll('text'),150);
+      wrap(d3.selectAll('text'),200);
 
     // Transition nodes to their new position.
     var nodeUpdate = node.transition()
@@ -283,7 +283,7 @@ function mouseout(d) {
           word,
           line = [],
           lineNumber = 0,
-          lineHeight = 1.5, // ems
+          lineHeight = 1.75, // ems
           y = text.attr("y"),
           dy = parseFloat(text.attr("dy")),
           tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
