@@ -100,7 +100,7 @@
   d3.json("data/all-original-combined.json", function(error,values){
     root = values;
     select2_data = extract_select2_data(values,[],0)[1];//I know, not the prettiest...
-    root.x0 = height / 2;
+    root.x0 = height / 4;
     root.y0 = 0;
     root.children.forEach(collapse);
     update(root);
@@ -148,9 +148,9 @@
     .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
 
     nodeEnter.append("text")
-      .attr("x", function(d) { return d.children || d._children ? 10 : 10; })
+      .attr("x", function(d) { return d.children || d._children ? -10 : 100; })
       .attr("dy", ".35em")
-      .attr("text-anchor", function(d) { return d.children || d._children ? "start" : "start"; })
+      .attr("text-anchor", function(d) { return d.children || d._children ? "start" : "end"; })
       .text(function(d) { return d.name; })
       .style("fill-opacity", 1e-6);
 
