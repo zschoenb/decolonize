@@ -88,11 +88,14 @@
     text.attr("class", "update");
 
     text.enter().append("text")
-        .attr("class", "enter")
+        .attr("x", function(d) { return d.children || d._children ? -20 : 10; })
         .attr("dy", ".35em")
-        .text(function(d) { return d; })
+        .attr("text-anchor", function(d) { return d.children || d._children ? "start" : "end"; })
+        .text(function(d) { return d.name; })
+        .style("fill-opacity", 1e-6);
 
     
+
     text.exit().remove();
 
   }
