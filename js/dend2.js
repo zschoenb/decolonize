@@ -124,6 +124,26 @@
   d3.select(self.frameElement).style("height", "1200px");
 
   function update(source) {
+
+    var levelWidth = [1];
+    var childCount = function(level, n) {
+    
+    if(n.children && n.children.length > 0) {
+      if(levelWidth.length <= level + 1) levelWidth.push(0);
+      
+      levelWidth[level+1] += n.children.length;
+      n.children.forEach(function(d) {
+        childCount(level + 1, d);
+      });
+    }
+  };
+
+  childCount(0, root);  
+  var newHeight = d3.max(levelWidth) * 48; // 20 pixels per line  
+  tree = tree.size([newHeight, width]).sort(function(a,b){
+      return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+  });
+
     // Compute the new tree layout.
     var nodes = tree.nodes(root).reverse(),
     links = tree.links(nodes);
