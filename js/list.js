@@ -83,19 +83,16 @@
 
    var updateWindow = function(data) {
     var text = d3.selectAll("g").selectAll("text")
-      .data(data, function(d) { return d.children; });
+      .data(data, function(d) { return d.children || d._children; });
     
     text.attr("class", "update");
 
     text.enter().append("text")
-        .attr("x", function(d) { return d.children || d._children ? -20 : 10; })
+        .attr("class", "enter")
         .attr("dy", ".35em")
-        .attr("text-anchor", function(d) { return d.children || d._children ? "start" : "end"; })
-        .text(function(d) { return d.name; })
-        .style("fill-opacity", 1e-6);
+        .text(function(d) { return d; })
 
-    
-
+    text.remove()
     text.exit().remove();
 
   }
