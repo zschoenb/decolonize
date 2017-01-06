@@ -15,12 +15,14 @@
         term: d.Term,
         count: +d.Count
       }
-      return d.Term
+      
     });
 
     $( "#tags" ).autocomplete({
       source: availableTags
     });
+
+    console.log(availableTags)
   } );
 
   }
