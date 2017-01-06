@@ -167,7 +167,8 @@
  //   .attr("r", 1e-6)
  //   .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
 
-    if (( function(d) {return d.name} == 'subject'||'place') || (function(d) {return d.size} != undefined)) {
+    if ((function(d) {return d.name} == 'subject'||'place') || (function(d) {return d.size} != undefined)) {
+      console.log(function(d) {return d.name + ' ' + d.size} )
       nodeEnter.append("text")
         .attr("x", function(d) { return d.children || d._children ? 100 : 150; })
         .attr("dy", ".35em")
@@ -175,6 +176,7 @@
         .text(function(d) { return d.name; })
         .style("fill-opacity", 1e-6);      
       } else {
+        console.log(function(d) {return d.name + ' ' + d.size} )
         nodeEnter.append("text")
         .attr("x", function(d) { return d.children || d._children ? -20 : -10; })
         .attr("dy", ".35em")
