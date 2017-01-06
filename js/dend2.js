@@ -40,7 +40,7 @@
     .style("opacity", 0);
 
   var margin = {top: 20, right: 120, bottom: 20, left: 120},
-    width = 1500 - margin.right - margin.left,
+    width = 1800 - margin.right - margin.left,
     height = 25000 - margin.top - margin.bottom;
 
   var i = 0,
@@ -179,7 +179,7 @@
         .style("fill-opacity", 1e-6);      
   
 
-      wrap(d3.selectAll('text'),200);
+      wrap(d3.selectAll('text'),150);
 
     // Transition nodes to their new position.
     var nodeUpdate = node.transition()
