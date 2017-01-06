@@ -168,7 +168,7 @@
  //   .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
 
     if ((function(d) {return d.name} == 'subject'||'place') || (function(d) {return d.size} != undefined)) {
-      console.log(d.name)
+      function(d) {console.log(d.name)}
       nodeEnter.append("text")
         .attr("x", function(d) { return d.children || d._children ? 100 : 150; })
         .attr("dy", ".35em")
