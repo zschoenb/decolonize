@@ -1,6 +1,6 @@
 
 
-root = d3.json("data/all-original-combined.json", function(error, json) {
+root = d3.hierarchy("data/all-original-combined.json", function(error, json) {
   if (error) throw error;
   return json;  
 });
