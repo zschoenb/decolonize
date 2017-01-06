@@ -7,7 +7,7 @@ $(function() {
     var auto = function(data) {
       console.log(data)
       $( "#search" ).autocomplete({
-         source: data
+         source: data.term
       });
     }
   });
