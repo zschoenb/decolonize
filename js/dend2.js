@@ -167,12 +167,23 @@
  //   .attr("r", 1e-6)
  //   .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
 
-    nodeEnter.append("text")
-      .attr("x", function(d) { return d.children || d._children ? -20 : -10; })
-      .attr("dy", ".35em")
-      .attr("text-anchor", function(d) { return d.children || d._children ? "start" : "end"; })
-      .text(function(d) { return d.name; })
-      .style("fill-opacity", 1e-6);
+    if ((function(d) {return d.name == 'subject'|'place'}) && (function(d) {return d.size != undefined})) {
+      nodeEnter.append("text")
+        .attr("x", function(d) { return d.children || d._children ? 100 : 150; })
+        .attr("dy", ".35em")
+        .attr("text-anchor", function(d) { return d.children || d._children ? "start" : "end"; })
+        .text(function(d) { return d.name; })
+        .style("fill-opacity", 1e-6);      
+      } else {
+        nodeEnter.append("text")
+        .attr("x", function(d) { return d.children || d._children ? -20 : -10; })
+        .attr("dy", ".35em")
+        .attr("text-anchor", function(d) { return d.children || d._children ? "start" : "end"; })
+        .text(function(d) { return d.name; })
+        .style("fill-opacity", 1e-6);
+      }
+
+
 
     // Transition nodes to their new position.
     var nodeUpdate = node.transition()
