@@ -34,14 +34,6 @@
           return [index,leaves];
   }
 
-  var div = d3.select("body")
-    .append("div") // declare the tooltip div
-    .attr("class", "tooltip")
-    .style("opacity", 0);
-
-  var margin = {top: 20, right: 120, bottom: 20, left: 120},
-    width = 1800 - margin.right - margin.left,
-    height = 25000 - margin.top - margin.bottom;
 
   var i = 0,
     duration = 750,
@@ -49,15 +41,10 @@
     select2_data;
 
 
-  var diagonal = d3.svg.diagonal()
-    .projection(function(d) { return [d.y, d.x]; });
-
-  var svg = d3.select("body").append("svg")
-    .attr("width", width + margin.right + margin.left)
-    .attr("height", height + margin.top + margin.bottom)
-      .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
+  var svg = d3.select("svg"),
+      width = +svg.attr("width"),
+      height = +svg.attr("height"),
+      g = svg.append("g").attr("transform", "translate(32," + (height / 2) + ")");
 
   d3.json("data/all-original-combined.json", function(error,values){
     root = values;
@@ -71,9 +58,9 @@
   });
   //attach search box listener
   $("#search").on("select2-selecting", function(e) {
-    var paths = searchTree(root,e.object.text,[]);
-    if(typeof(paths) !== "undefined"){
-      updateWindow(paths);
+    var data = searchTree(root,e.object.text,[]);
+    if(typeof(data) !== "undefined"){
+      updateWindow(data);
     }
     else{
       alert(e.object.text+" not found!");
@@ -81,55 +68,20 @@
   })
 
 
-  var updateWindow = function(paths) {
-    console.log(paths)
-  }
-/**
-  d3.select(self.frameElement).style("height", "1200px");
+  var updateWindow = function(data) {
+    var text = g.selectAll("text")
+      .data(data, function(d) { return d.children; });
+    
+    text.attr("class", "update");
 
-      nodeEnter.append("text")
-        .attr("x", function(d) { return d.children || d._children ? -20 : 10; })
+    text.enter().append("text")
+        .attr("class", "enter")
         .attr("dy", ".35em")
-        .attr("text-anchor", function(d) { return d.children || d._children ? "start" : "end"; })
-        .text(function(d) { return d.name; })
-        .style("fill-opacity", 1e-6);      
-  
-    // Transition nodes to their new position.
-    var nodeUpdate = node.transition()
-      .duration(duration)
-      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+        .text(function(d) { return d; })
+      .merge(text)
+        .attr("x", function(d, i) { return i * 32; });
 
-    nodeUpdate.select("text")
-      .style("fill-opacity", 1);
-
-    // Transition exiting nodes to the parent's new position.
-    var nodeExit = node.exit().transition()
-      .duration(duration)
-      .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
-      .remove();
+    text.exit().remove();
 
 
-
-    nodeExit.select("text")
-      .style("fill-opacity", 1e-6);
-
-
-function mouseover(d) {
-    if (d.size != undefined) {
-      d3.select(this).append("text")
-        .attr("class", "hover")
-        .attr('transform', function(d){ 
-            return 'translate(10, -11)';
-         })
-        .text(d.size + " in this community");
-    }
-}
-
-// Toggle children on click.
-function mouseout(d) {
-  if (d.size != undefined) {
-    d3.select(this).select("text.hover").remove();
   }
-}
-
-**/
