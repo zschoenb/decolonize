@@ -1,3 +1,5 @@
+width = 1400;
+height = 1200;
 var i = 0;
 
 var transform = d3.zoomIdentity;;
