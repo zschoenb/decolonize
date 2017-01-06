@@ -1,0 +1,32 @@
+.node {
+	cursor: pointer;
+}
+
+.node circle {
+  fill: #FFDB05;
+  stroke: #007C41;
+  stroke-width: 1.5px;
+}
+
+.found {
+	fill: #ff4136;
+	stroke: #ff4136;
+}
+.node text {
+  font: 12px sans-serif;
+  font-weight: bold;
+}
+
+.link {
+	fill: none;
+	stroke: #ccc;
+	stroke-width: 1.5px;
+}
+/*Just to ensure the select2 box is "glued" to the top*/
+.search {
+  width: 100%;
+}
+
+text.hover {
+  font-weight: normal;
+}
