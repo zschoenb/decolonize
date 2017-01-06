@@ -7,7 +7,7 @@
   $( function() {
     availableTags = d3.csv("data/all-original.csv", function(error, data) {
       if (error) throw error;
-      $( "#tags" ).autocomplete({
+      $( "#search" ).autocomplete({
         source: availableTags
       });
     });
