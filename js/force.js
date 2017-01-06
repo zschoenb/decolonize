@@ -1,9 +1,6 @@
 
 
-root = d3.hierarchy("data/all-original-combined.json", function(error, json) {
-  if (error) throw error;
-  return json;  
-});
+
 
 var i = 0;
 
@@ -18,6 +15,12 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(40,0)");
 
+d3.hierarchy("data/all-original-combined.json", function(error, json) {
+  if (error) throw error;
+  root = json[0]
+  update();
+});
+
 function zoomed() {
   svg.attr("transform", d3.event.transform);
 }
@@ -28,7 +31,7 @@ simulation = d3.forceSimulation()
   .force("center", d3.forceCenter(width / 2, height / 2))
   .on("tick", ticked);
 
-update();
+
 
 function update() {
   var nodes = flatten(root);
