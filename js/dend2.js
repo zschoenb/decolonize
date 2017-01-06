@@ -97,6 +97,10 @@
     }
   }
 
+  function getData(d) {
+    return d;
+  }
+
   d3.json("data/all-original-combined.json", function(error,values){
     root = values;
     select2_data = extract_select2_data(values,[],0)[1];//I know, not the prettiest...
@@ -167,25 +171,15 @@
  //   .attr("r", 1e-6)
  //   .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
 
-    if ((function(d) {return d.name} == 'subject'||'place') || (function(d) {return d.size} != undefined)) {
-      function(d) {console.log(d.name)}
       nodeEnter.append("text")
         .attr("x", function(d) { return d.children || d._children ? 100 : 150; })
         .attr("dy", ".35em")
         .attr("text-anchor", function(d) { return d.children || d._children ? "start" : "end"; })
         .text(function(d) { return d.name; })
         .style("fill-opacity", 1e-6);      
-      } else {
-        console.log(function(d) {return d.name + ' ' + d.size} )
-        nodeEnter.append("text")
-        .attr("x", function(d) { return d.children || d._children ? -20 : -10; })
-        .attr("dy", ".35em")
-        .attr("text-anchor", function(d) { return d.children || d._children ? "start" : "end"; })
-        .text(function(d) { return d.name; })
-        .style("fill-opacity", 1e-6);
-      }
+  
 
-
+      wrap(d3.selectAll('text'),150);
 
     // Transition nodes to their new position.
     var nodeUpdate = node.transition()
@@ -281,3 +275,26 @@ function mouseout(d) {
     d3.select(this).select("text.hover").remove();
   }
 }
+
+    function wrap(text, width) {
+      text.each(function() {
+        var text = d3.select(this),
+          words = text.text().split(/\s+/).reverse(),
+          word,
+          line = [],
+          lineNumber = 0,
+          lineHeight = 1.1, // ems
+          y = text.attr("y"),
+          dy = parseFloat(text.attr("dy")),
+          tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+        while (word = words.pop()) {
+          line.push(word);
+          tspan.text(line.join(" "));
+          if (tspan.node().getComputedTextLength() > width) {
+            line.pop();
+            tspan.text(line.join(" "));
+            line = [word];
+            tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+          }
+        }
+        d3.select(this.parentNode.children[0]).attr('height', 19 * (lineNumber+1));
