@@ -73,7 +73,7 @@
   $("#search").on("select2-selecting", function(e) {
     var paths = searchTree(root,e.object.text,[]);
     if(typeof(paths) !== "undefined"){
-      openPaths(paths);
+      updateWindow(paths);
     }
     else{
       alert(e.object.text+" not found!");
@@ -81,6 +81,9 @@
   })
 
 
+  var paths = function(paths) {
+    console.log(paths)
+  }
 /**
   d3.select(self.frameElement).style("height", "1200px");
 
