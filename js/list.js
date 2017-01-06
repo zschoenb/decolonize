@@ -82,7 +82,7 @@
 
 
    var updateWindow = function(data) {
-    var text = g.selectAll("text")
+    var text = selectAll("g").selectAll("text")
       .data(data, function(d) { return d.children; });
     
     text.attr("class", "update");
