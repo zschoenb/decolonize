@@ -3,8 +3,8 @@ $( document ).ready(function() {
       if (error) throw error;
       auto(data);
     });
-    auto = function(data) {
-      $( ".search" ).autocomplete({
+    var auto = function(data) {
+      $( "#search" ).autocomplete({
         source: availableTags
       });
     }
