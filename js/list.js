@@ -96,7 +96,7 @@
 
     
     text.exit().remove();
-  }
+  });
 
 
   }
