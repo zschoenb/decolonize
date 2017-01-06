@@ -13,7 +13,7 @@ var svg = d3.select("body").append("svg")
 
 d3.json("data/all-original-combined.json", function(error, json) {
   if (error) throw error;
-  var root = d3.hierarcy(json);
+  var root = d3.hierarchy(json);
   update(root);
 });
 
@@ -24,7 +24,7 @@ function zoomed() {
 simulation = d3.forceSimulation()
   .force("link", d3.forceLink().id(function(d) { return d.id; }))
   .force("charge", d3.forceManyBody())
-  .force("center", d3.forceCenter(width / 2, height / 2))
+  .force("center", d3.forceCenter(1400 / 2, 1200 / 2))
   .on("tick", ticked);
 
 
