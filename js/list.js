@@ -82,8 +82,10 @@
 
 
    var updateWindow = function(data) {
-    var text = d3.selectAll("g").selectAll("text")
-      .data(data, function(d) { return d.children['name'] });
+
+    data.forEach(function(currentValue, index) {
+      var text = d3.selectAll("g").append("text")
+      .data(currentValue, function(d) { return d.name] });
     
     text.attr("class", "update");
 
@@ -92,7 +94,9 @@
         .attr("dy", ".35em")
         .text(function(d) { return d; })
 
-    text.remove()
+    
     text.exit().remove();
+    }
+
 
   }
