@@ -85,7 +85,7 @@
 
     data.forEach(function(currentValue, index) {
       var text = d3.selectAll("g").append("text")
-      .data(currentValue, function(d) { return d.name] });
+      .data(currentValue, function(d) { return d.name });
     
     text.attr("class", "update");
 
