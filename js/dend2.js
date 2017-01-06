@@ -97,7 +97,7 @@
     }
   }
 
-  d3.json("data/all-combined-original.json", function(error,values){
+  d3.json("data/all-original-combined.json", function(error,values){
     root = values;
     select2_data = extract_select2_data(values,[],0)[1];//I know, not the prettiest...
     root.x0 = height / 2;
