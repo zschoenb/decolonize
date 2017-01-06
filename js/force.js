@@ -1,8 +1,8 @@
-d3.json("data/all-original-combined.json", function(error, json) {
+root = d3.json("data/all-original-combined.json", function(error, json) {
   if (error) throw error;
 
-  root = json;
-  update();
+  return json;
+  
 });
 
 var i = 0;
