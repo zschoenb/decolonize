@@ -62,10 +62,7 @@
   d3.json("data/all-original-combined.json", function(error,values){
     root = values;
     select2_data = extract_select2_data(values,[],0)[1];//I know, not the prettiest...
-    root.x0 = height / 2;
-    root.y0 = 0;
-    root.children.forEach(collapse);
-    update(root);
+   //update(root);
     //init search box
     $("#search").select2({
       data: select2_data,
@@ -83,7 +80,7 @@
     }
   })
 
-  
+
 /**
   d3.select(self.frameElement).style("height", "1200px");
 
