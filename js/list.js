@@ -83,7 +83,7 @@
 
    var updateWindow = function(data) {
     var text = d3.selectAll("g").selectAll("text")
-      .data(data, function(d) { return d.children || d._children; });
+      .data(data, function(d) { return d.children['name'] });
     
     text.attr("class", "update");
 
