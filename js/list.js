@@ -7,22 +7,10 @@
   $( function() {
     availableTags = d3.csv("data/all-original.csv", function(error, data) {
       if (error) throw error;
-      data.forEach(function(d) {
-        source: d.Source,
-        community: d.Community,
-        type: d.Type,
-        aplha: d.Alpha,
-        term: d.Term,
-        count: +d.Count
-      }
-      
+      $( "#tags" ).autocomplete({
+        source: availableTags
+      });
     });
-
-    $( "#tags" ).autocomplete({
-      source: availableTags
-    });
-
-    console.log(availableTags)
   } );
 
   }
