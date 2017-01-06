@@ -91,9 +91,8 @@
         .attr("class", "enter")
         .attr("dy", ".35em")
         .text(function(d) { return d; })
-      .merge(text)
-        .attr("x", function(d, i) { return i * 32; });
 
+    
     text.exit().remove();
 
   }
