@@ -1,7 +1,3 @@
-
-
-
-
 var i = 0;
 
 var transform = d3.zoomIdentity;;
@@ -15,10 +11,10 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(40,0)");
 
-d3.hierarchy("data/all-original-combined.json", function(error, json) {
+d3.json("data/all-original-combined.json", function(error, json) {
   if (error) throw error;
-  root = json[0]
-  update();
+  var root = d3.hierarcy(json);
+  update(root);
 });
 
 function zoomed() {
@@ -33,7 +29,7 @@ simulation = d3.forceSimulation()
 
 
 
-function update() {
+function update(root) {
   var nodes = flatten(root);
   var links = root.links();
 
