@@ -148,7 +148,7 @@
     .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
 
     nodeEnter.append("text")
-      .attr("x", function(d) { return d.children || d._children ? -10 : 100; })
+      .attr("x", function(d) { return d.children || d._children ? 100 : 110; })
       .attr("dy", ".35em")
       .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
       .text(function(d) { return d.name; })
