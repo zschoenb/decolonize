@@ -121,7 +121,7 @@
     }
   })
 
-  d3.select(self.frameElement).style("height", "800px");
+  d3.select(self.frameElement).style("height", "1200px");
 
   function update(source) {
     // Compute the new tree layout.
@@ -148,7 +148,7 @@
     .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
 
     nodeEnter.append("text")
-      .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
+      .attr("x", function(d) { return d.children || d._children ? -10 : 100; })
       .attr("dy", ".35em")
       .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
       .text(function(d) { return d.name; })
