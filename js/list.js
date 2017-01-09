@@ -1,4 +1,4 @@
-d3.csv("data/all-original.csv", function(d) {
+var data = d3.csv("data/all-original.csv", function(d) {
   return {
     source: d.source,
     type: d.type,
@@ -13,6 +13,6 @@ d3.csv("data/all-original.csv", function(d) {
 
 $(function() {
       $( "#search" ).autocomplete({
-         source: d3.data(function(d) { return d.term; })
+         source: data;
       });
   });
