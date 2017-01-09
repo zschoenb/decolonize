@@ -4,7 +4,7 @@ d3.csv("data/all-original.csv", function(d) {
     source: d.source,
     type: d.type,
     community: d.community,
-    alpha: d.aplha,
+    alpha: d.alpha,
     term: d.term,
     count: +d.count
   };
