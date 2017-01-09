@@ -11,10 +11,10 @@ d3.csv("data/all-original.csv", function(d) {
   console.log(rows);
 });
 
-console.log(return{function(d) { return d; }})
+console.log(function(d) { return d; })
 
 $(function() {
       $( "#search" ).autocomplete({
-         source: return{function(d) { return d; }}
+         source: function(d) { return d; }
       });
   });
