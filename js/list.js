@@ -5,9 +5,9 @@ $(function() {
 
     });
     var auto = function(data) {
-      console.log(function(d) { return d} )
+      console.log(function(d) { return d.term; } )
       $( "#search" ).autocomplete({
-         source: function(d) { return d } 
+         source: function(d) { return d.term; } 
       });
     }
   });
