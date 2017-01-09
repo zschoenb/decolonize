@@ -13,6 +13,7 @@ var data = d3.csv("data/all-original.csv", function(d) {
 
 $(function() {
       $( "#search" ).autocomplete({
-         source: {data};
+         console.log(function(d) {d.term})
+         source: function(d) {d.term}; 
       });
   });
