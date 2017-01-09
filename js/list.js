@@ -15,5 +15,4 @@
       $( "#search" ).autocomplete({
          source: function(d) { return d.Term; } 
       });
-    }
   });
