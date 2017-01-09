@@ -1,6 +1,5 @@
 d3.csv("data/all-original.csv", function(d) {
   return {
-    
     source: d.source,
     type: d.type,
     community: d.community,
@@ -14,6 +13,6 @@ d3.csv("data/all-original.csv", function(d) {
 
 $(function() {
       $( "#search" ).autocomplete({
-         source: function(d) { return d.term; } 
+         source: d3.data(function(d) { return d.term; })
       });
   });
