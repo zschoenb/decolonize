@@ -1,12 +1,12 @@
 d3.csv("data/all-original.csv", function(d) {
   return {
-    d
-    //source: d.Source,
-    //type: d.Type,
-    //community: d.Community,
-    //alpha: d.Aplha,
-    //term: d.Term,
-    //count: +d.Count
+    
+    source: d.source,
+    type: d.type,
+    community: d.community,
+    alpha: d.aplha,
+    term: d.term,
+    count: +d.count
   };
 }, function(error, rows) {
   console.log(rows);
@@ -14,6 +14,6 @@ d3.csv("data/all-original.csv", function(d) {
 
 $(function() {
       $( "#search" ).autocomplete({
-         source: function(d) { return d.Term; } 
+         source: function(d) { return d.term; } 
       });
   });
