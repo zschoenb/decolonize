@@ -1,7 +1,7 @@
 
   
 d3.csv("data/all-original.csv", function(error, data) {
-  d3.select("body").selectAll("select")
+  d3.select("select")
     .data(data)
     .enter()
     .append("option")
