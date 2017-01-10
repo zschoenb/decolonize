@@ -10,20 +10,6 @@ d3.csv("data/all-original.csv", function(error, data) {
 
 });
 
-//var data = d3.nest()
-//  .key(function(d) { return d.term; })
-//  .rollup(function(v) { return {
-//    source: v.source,
-//    type: v.type,
-//    community: v.community,
-//    alpha: v.alpha,
-//    count: v.count
-//  }; })
-//  .entries(expenses);
-//console.log(JSON.stringify(expenseMetrics));
-
-
-
 
 $( function() {
   $.widget( "custom.combobox", {
