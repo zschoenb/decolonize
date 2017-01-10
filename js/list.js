@@ -1,6 +1,9 @@
-d3.csv("data/all-original.csv", function(error, data) {
+var comb = d3.select("body")
+  .append("select")
+  .attr("id","combobox")
 
-  d3.select("combobox")
+d3.csv("data/all-original.csv", function(error, data) {
+  comb
     .data(data)
     .enter()
     .append("option")
