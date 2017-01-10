@@ -18,7 +18,7 @@ d3.csv("data/all-original.csv", function(error, data) {
       .filter(function(d) { return d.term == selectValue })
         .append('p')
         .text(function(d) { return d.source})      
-      .remove()      
+       
   };
 
 });
