@@ -9,7 +9,8 @@ d3.csv("data/all-original.csv", function(error, data) {
  
 });
 
-/**
+/*
+
 $( function() {
   $.widget( "custom.combobox", {
     _create: function() {
@@ -147,4 +148,4 @@ $( function() {
   });
 } );
 
-/**
+*/
