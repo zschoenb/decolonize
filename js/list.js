@@ -1,6 +1,3 @@
-d3.select("body")
-  .insert("select")
-  .attr("id","combobox");
 
   
 d3.csv("data/all-original.csv", function(error, data) {
