@@ -14,7 +14,7 @@ d3.csv("data/all-original.csv", function(error, data) {
 });
 
   function onchange() {
-    selectValue = d3.select('select').property('value')
+    var selectValue = d3.select('select').property('value')
     d3.select('body')
       .data(function(d) {return d}).enter()
       .filter(function(d) { return d.term == selectValue })
