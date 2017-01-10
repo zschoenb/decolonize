@@ -1,13 +1,12 @@
 d3.csv("data/all-original.csv", function(error, data) {
 
-  d3.select("#combobox")
+  d3.select('body').select("#combobox")
     .data(data)
     .enter()
     .append("option")
     .attr("value", function (d) { return d.term; })
     .text(function (d) { return d.term; });
  
-
 });
 
 
