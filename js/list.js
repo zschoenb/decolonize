@@ -1,18 +1,15 @@
-var comb = d3.select("body")
-  .append("select")
-  .attr("id","combobox")
 
 d3.csv("data/all-original.csv", function(error, data) {
-  comb
-    .data(data)
-    .enter()
+  d3.select("body")
+    .append("select")
+    .attr("id","combobox")
     .append("option")
     .attr("value", function (d) { return d.term; })
     .text(function (d) { return d.term; });
  
 });
 
-
+/**
 $( function() {
   $.widget( "custom.combobox", {
     _create: function() {
@@ -149,3 +146,5 @@ $( function() {
     $( "#combobox" ).toggle();
   });
 } );
+
+/**
