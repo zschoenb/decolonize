@@ -1,6 +1,6 @@
 d3.csv("data/all-original.csv", function(error, data) {
 
-  d3.select('body').select("#combobox")
+  d3.select('body').selectAll("#combobox")
     .data(data)
     .enter()
     .append("option")
