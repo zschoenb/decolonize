@@ -11,11 +11,20 @@ d3.csv("data/all-original.csv", function(error, data) {
     .append('option')
       .text(function (d) { return d.term; });
 
+});
+
   function onchange() {
     selectValue = d3.select('select').property('value')
     d3.select('body')
+      .data(data).enter()
       .append('p')
-      .text(selectValue + ' is the last selected option.')
+      .text(selectValue)
+      .filter(function(d) { return d.term == selectValue })
+        .append('p')
+        .text(function(d) { return d.source})
+        .append('p')
+        .text(function(d) { return d.community})
+        .append('p')
+        .text(function(d) { return d.size})                              
+      .remove()      
   };
-
-});
