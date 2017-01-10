@@ -20,8 +20,8 @@ function onchange() {
     d3.select('body')
         .data(data)
         .enter()
-        .filter(function(d) { return d.term == selectValue })
         .append('p')
+        .filter(function(d) { return d.term == selectValue })
         .text(function(d) { return d.source})      
        
   };
