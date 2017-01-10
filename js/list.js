@@ -9,7 +9,7 @@ d3.csv("data/all-original.csv", function(error, data) {
     .selectAll('option')
     .data(data).enter()
     .append('option')
-      .text(function (d) { return d; });
+      .text(function (d) { return d.term; });
 
   function onchange() {
     selectValue = d3.select('select').property('value')
