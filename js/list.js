@@ -1,22 +1,13 @@
-d3.csv("data/all-original.csv", function(d) {
-  return {
-    source: d.source,
-    type: d.type,
-    community: d.community,
-    alpha: d.alpha,
-    term: d.term,
-    count: +d.count
-  };
+d3.csv("data/all-original.csv", function(error, data) {
+
   d3.select.("#combobox")
     .data(data)
     .enter()
     .append("option")
     .attr("value", function (d) { return d.term; })
     .text(function (d) { return d.term; });
-  
-  
-}, function(error, rows) {
-  console.log(rows);
+ 
+
 });
 
 //var data = d3.nest()
