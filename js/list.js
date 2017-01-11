@@ -16,7 +16,7 @@ d3.csv("data/all-original.csv", function(error, data) {
 });
 
 
-  function onchange(i) {
+  function onchange(data) {
       var selectValue = d3.select('select').property('value')
       d3.select('body').selectAll('p').remove()
       d3.select('body')
