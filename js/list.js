@@ -13,7 +13,7 @@ d3.csv("data/all-original.csv", function(error, data) {
 
   function onchange(d, i) {
       var selectValue = d3.select('select').property('value')
-      alert(i + d)
+      alert(i + d);
       //d3.select('body')
       //    .data(data)
       //    .enter()
@@ -21,7 +21,7 @@ d3.csv("data/all-original.csv", function(error, data) {
       //    .filter(function(d) { return d.term == selectValue })
       //    .text(function(d) { return d.source})      
          
-    };
+    });
 
 });
 
