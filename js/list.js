@@ -5,7 +5,7 @@ d3.csv("data/all-original.csv", function(error, data) {
       .attr('id','descriptions')
       .on('change',onchange)
 
-  console.log(data)  
+  alert(function() {return d})
   
   $( function() {
     $( "#descriptions" ).autocomplete({
