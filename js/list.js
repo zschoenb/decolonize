@@ -9,8 +9,8 @@ d3.csv("data/all-original.csv", function(error, data) {
             .data(data)
             .enter()
             .append('p')
-            .text(d.value)      
-        };
+            .text(d[i])      
+        });
 
   var options = select
     .selectAll('option')
