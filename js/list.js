@@ -18,11 +18,8 @@ d3.csv("data/all-original.csv", function(error, data) {
           .data(data)
           .enter()
           .append('p')
-          .filter(function(d) { return d.term == selectValue })
-          .text('located in:')
-          .append('p')
           .filter(function(d) { return d.term == selectValue })    
-          .text(function(d) { return d.source + ': ' + d.community})
+          .text(function(d) { return d.count + ' used in ' + d.source + ': ' + d.community})
 
 
     };
