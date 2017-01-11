@@ -2,14 +2,18 @@
 d3.csv("data/all-original.csv", function(error, data) {
   var select = d3.select('body')
     .append('select')
-      .attr('class','select')
+      .attr('id','descriptions')
       .on('change',onchange)
 
-  var options = select
-    .selectAll('option')
-    .data(data).enter()
-    .append('option')
-      .text(function (d) { return d.term } );
+  var options = function (d) { return d.term }
+  
+  console.log(options)
+
+  $( function() {
+    $( "#tags" ).autocomplete({
+      source: options
+    });
+  } );
 
   function onchange(i) {
       var selectValue = d3.select('select').property('value')
