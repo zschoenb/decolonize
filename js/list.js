@@ -18,6 +18,7 @@ d3.csv("data/all-original.csv", function(error, data) {
           .data(data)
           .enter()
           .filter(function(d) { return d.term == selectValue })
+          .append('p')
           .text('located in:')
           .append('p')
           .text(function(d) { return d.source + ': ' + d.community})
