@@ -18,9 +18,9 @@ d3.csv("data/all-original.csv", function(error, data) {
           .enter()
           .append('p')
           .filter(function(d) { return d.term == selectValue })
-          .text('source: ' + function(d) { return d.source})
+          .text(function(d) { return d.source})
           .append('p')
-          .text('community: ' + function(d) { return d.community})
+          .text(function(d) { return d.community})
 
          
     };
