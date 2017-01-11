@@ -4,12 +4,12 @@ d3.csv("data/all-original.csv", function(error, data) {
     .append('select')
       .attr('id','descriptions')
       .on('change',onchange)
-
-  alert(function() {return d})
+  
+  var descriptions = data.toArray()
   
   $( function() {
     $( "#descriptions" ).autocomplete({
-      source: data
+      source: data['term']
     });
   } );
 
