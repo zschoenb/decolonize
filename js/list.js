@@ -3,7 +3,7 @@ d3.csv("data/all-original.csv", function(error, data) {
   var select = d3.select('body')
     .append('select')
       .attr('class','select')
-      .on('change',onchange(data))
+      .on('change',onchange(data, i))
 
   var options = select
     .selectAll('option')
@@ -16,8 +16,8 @@ d3.csv("data/all-original.csv", function(error, data) {
 });
 
 
-  function onchange(data) {
-      console.log(data)
+  function onchange(data, i) {
+      console.log(data[i])
       var selectValue = d3.select('select').property('value')
       d3.select('body').selectAll('p').remove()
       d3.select('body')
