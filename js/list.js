@@ -15,6 +15,8 @@ var data = d3.csv("data/all-original.csv", function(error, data) {
 
 });
 
+console.log(data)
+
 function onchange() {
     var selectValue = d3.select('select').property('value')
     d3.select('body')
