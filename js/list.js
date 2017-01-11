@@ -17,14 +17,14 @@ d3.csv("data/all-original.csv", function(error, data) {
       d3.select('body')
           .data(data)
           .enter()
-          .filter(function(d) { return d.term == selectValue })
           .append('p')
+          .filter(function(d) { return d.term == selectValue })
           .text('located in:')
       d3.select('body')
           .data(data)
           .enter()
-          .filter(function(d) { return d.term == selectValue })    
           .append('p')
+          .filter(function(d) { return d.term == selectValue })    
           .text(function(d) { return d.source + ': ' + d.community})
     };
 
