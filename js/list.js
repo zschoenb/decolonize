@@ -22,8 +22,6 @@ d3.csv("data/all-original.csv", function(error, data) {
           .text('located in:')
           .append('p')
           .text(function(d) { return d.source + ': ' + d.community})
-          .remove()
-         
     };
 
 });
