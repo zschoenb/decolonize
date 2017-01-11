@@ -11,7 +11,7 @@ var data = d3.csv("data/all-original.csv", function(error, data) {
     .append('option')
       .text(function (d) { return d.term; });
 
-  return(data)
+  return {data};
 
 });
 
