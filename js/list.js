@@ -5,13 +5,10 @@ d3.csv("data/all-original.csv", function(error, data) {
       .attr('id','descriptions')
       .on('change',onchange)
 
-  var options = function (d) { return d.term }
-  
-  console.log(options)
-
+  console.log(data.term)
   $( function() {
     $( "#tags" ).autocomplete({
-      source: options
+      source: data.term
     });
   } );
 
