@@ -11,7 +11,7 @@ d3.csv("data/all-original.csv", function(error, data) {
     .append('option')
       .text(function (d) { return d.term } );
 
-    };
+ 
 
 });
 
@@ -25,3 +25,4 @@ d3.csv("data/all-original.csv", function(error, data) {
           .append('p')
           .filter(function(d) { return d.term == selectValue })    
           .text(function(d) { return d.count + ' in ' + d.source + ': ' + d.community})
+   };
