@@ -4,7 +4,9 @@ d3.csv("data/all-original.csv", function(error, data) {
     .append('select')
       .attr('id','descriptions')
       .on('change',onchange)
-  console.log(data['object'])  
+
+  console.log(data)  
+  
   $( function() {
     $( "#descriptions" ).autocomplete({
       source: data
