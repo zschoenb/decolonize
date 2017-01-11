@@ -1,5 +1,5 @@
  
-var data = d3.csv("data/all-original.csv", function(error, data) {
+d3.csv("data/all-original.csv", function(error, data) {
   var select = d3.select('body')
     .append('select')
       .attr('class','select')
@@ -10,12 +10,9 @@ var data = d3.csv("data/all-original.csv", function(error, data) {
     .data(data).enter()
     .append('option')
       .text(function (d) { return d.term; });
-
-  return {data};
-
 });
 
-console.log(data)
+console.log(function(d){return d})
 
 function onchange() {
     var selectValue = d3.select('select').property('value')
